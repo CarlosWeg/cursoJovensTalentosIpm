@@ -1,0 +1,44 @@
+img{
+    height: 500px;
+    weight: auto;
+}
+
+.inicio{
+    font-family: 'Times New Roman', Times, serif;
+    color:green;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+.desenvolvimento{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:orange;
+    font-weight: bold;
+}
+
+
+.fim{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:red;
+    font-weight:lighter;
+}
+
+.criticas{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    color: blue;
+    font-weight: bold;
+}
+
+h1{
+    color: lightseagreen;
+    font-size: 400%;
+}
+
+h2{
+    color: purple;
+    font-size: 200%;
+}
+body{
+    background-color:aliceblue;
+}

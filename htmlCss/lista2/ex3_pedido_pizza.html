@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Pizzas</title>
+</head>
+<body>
+
+    <h2>Faça seu pedido!</h2>
+    <hr>
+
+    <form>
+
+        <fieldset>
+
+            <table border = "1">
+            
+                <th colspan = "2">
+                    <h4>Informações do Cliente:</h4>
+                </th>
+
+                <tr>
+                    <td><label for = "nome">Nome:</label></td>
+                    <td><input type = "text" id = "nome" name = "nome" required></td>
+                </tr> 
+                
+                <tr>
+                    <td><label for = "endereco">Endereço:</label></td>
+                    <td><input type = "endereco" id = "endereco" name = "endereco" required></td>
+                </tr>     
+                
+                <tr>
+                    <td><label for = "numero_endereco">Número do Endereço:</label></td>
+                    <td><input type = "number" id = "numero_endereco" name = "numero_endereco" required></td>
+                </tr>  
+
+                <tr>
+                    <td><label for = "bairro">Bairro:</label></td>
+                    <td><input type = "bairro" id = "bairro" name = "bairro" required></td>
+                </tr> 
+                
+                
+                <tr>
+                    <td><label for = "cidade">Cidade:</label></td>
+                    <td><input type = "text" id = "cidade" name = "cidade" required></td>
+                </tr>  
+                
+                <tr>
+                    <td><label for = "telefone">Telefone:</label></td>
+                    <td><input type = "tel" id = "telefone" name = "telefone" required></td>
+                </tr> 
+                
+                <tr>
+                    <td><label for = "email">E-mail:</label></td>
+                    <td><input type = "email" id = "email" name = "email" required></td>
+                </tr>  
+            
+            </table>
+
+        </fieldset>
+
+        <fieldset>
+
+            <table border="1">
+
+            
+
+                <th colspan = "2">
+                    <h4>Personalize seu pedido!</h4>
+                </th>
+
+                <tr>
+                    <td><label for = "tamanho">Tamanho da Pizza:</label></td>
+                    <td>
+                        <select name = "tamanho" required>
+                            <option value = "pequena">Pequena</option>
+                            <option value = "media">Média</option>
+                            <option value = "grande">Grande</option>
+                            <option value = "gigante">Gigante</option>
+                        </select>
+                    </td>
+                </tr>  
+
+                <tr>
+                    <td><label for = "sabores">Sabor da Pizza:</label></td>
+                    <td>
+                    <select name = "sabores" required>
+                        <option value = "4quejos">4 Queijos</option>
+                        <option value = "pepperoni">Pepperoni</option>
+                        <option value = "strogonoffCarne">Strogonoff de Carne</option>
+                        <option value = "calabresa">Calebresa</option>
+                        <option value = "chocolateBranco">Chocolate Branco</option>
+                        <option value = "chocolatePreto">Chocolate Preto</option>
+                    </select>
+                    </td>
+                </tr> 
+            </table>  
+        </fieldset>
+        
+        <fieldset>
+            <table border="1">
+                
+                <th colspan = "2">
+                    <h4>Escolha a forma de pagamento:</h4>
+                </th>
+
+                <tr>
+                    <td><label for = "pagamento">Formas de Pagamento:</label></td>
+                    <td>
+                    <select name = "pagamento" required>
+                        <option value = "dinheiro">Dinheiro</option>
+                        <option value = "cartao">Cartão</option>
+                        <option value = "cheque">Cheque</option>
+                    </select>
+                    </td>
+                </tr> 
+
+            </table>   
+        </fieldset>
+
+        <br>
+        <input type = "submit" value = "Enviar Pedido!">
+
+    </form>
+    
+</body>
+</html>

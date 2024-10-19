@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    <form>
+        
+        <table border = "1">
+
+            <caption><h2>Formulário</h2></caption>
+
+            <tr>
+                <td><label for = "nome">Nome:</label></td>
+                <td><input type = "text" id = "nome" name = "nome" required>*</td>
+            </tr>
+
+            <tr>
+                <td><label for = "email">E-mail:</label></td>
+                <td><input type = "email" id = "email" name = "email" required>*</td>
+            </tr>
+
+            <tr>
+                <td><label for = "quantidade">Qnt. Itens:</label></td>
+                <td><input type = "number" id = "quantidade" name = "quantidade" min = "1" max="10">(Intervalo de 0 a 10)</td>
+            </tr>
+
+            <tr>
+                <td><label for = "data">Data do pedido:</label></td>
+                <td><input type = "date" id = "data" name = "data" required>*</td>
+            </tr>
+
+            <tr>
+                <td><label for = "hora">Hora do pedido:</label></td>
+                <td><input type = "time" id = "hora" name = "hora" required>*</td>
+            </tr>
+
+            <tr>
+                <td><label for = "cor">Cor Favorita:</label></td>
+                <td><input type = "color" id = "cor" name = "cor"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>* Obrigatórios</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type = "submit" value = "Enviar Dados"></td>
+            </tr>
+
+        </table>
+
+    </form>
+    
+</body>
+</html>

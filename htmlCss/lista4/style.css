@@ -1,0 +1,60 @@
+body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header{
+    background-color: #fc2626;
+    display:flex;
+
+}
+
+
+.paginas a{
+    text-decoration: none;
+    color: white;
+}
+
+.paginas div{
+    max-width: 33%;
+    float:left;
+    margin: 20px;
+    margin-top: 28px;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.paginas_rodape{
+    background-color: #fc2626;
+
+}
+
+.educacao, .prefeitura, .saude{
+    max-width: 31%;
+    height: 200px;
+    float: left;
+    margin: 5px;
+    border: 2px solid #961c1c;
+    text-align: center;
+    align-items: center;
+}
+
+ol{
+    list-style-position:inside;
+}
+
+#logo{
+    height: 80px;
+}
+
+#titulo_saude{
+    color: rgb(35, 150, 1)
+}
+
+#titulo_educacao{
+    color: rgb(39, 156, 224)
+}
+
+#titulo_prefeitura{
+    color: orangered;
+}
