@@ -1,20 +1,36 @@
 body{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+
 }
+
+.video {
+    background-image: url(midias/cidade_black.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 
 header{
     background-color: #fc2626;
     display:flex;
+    height: 80px;
 
 }
 
+footer{
+    background-color: #fc2626;
+    clear: both;
+    height: 80px;
+}
 
-.paginas a{
+.paginas_cabecalho a, .paginas_rodape  a{
     text-decoration: none;
     color: white;
 }
 
-.paginas div{
+.paginas_cabecalho div, .paginas_rodape div{
     max-width: 33%;
     float:left;
     margin: 20px;
@@ -24,19 +40,53 @@ header{
     font-size: 20px;
 }
 
-.paginas_rodape{
-    background-color: #fc2626;
+.paginas_cabecalho a:hover, .paginas_rodape a:hover{
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
+.educacao, .prefeitura, .saude, .mensagem, address, .produto_tecnologia, .suporte_experiencia, .comercial{
+    border: 2px solid;
+    border-image: linear-gradient(to right, red, orange) 1;
 
 }
 
-.educacao, .prefeitura, .saude{
+.educacao, .prefeitura, .saude, .produto_tecnologia, .suporte_experiencia, .comercial{
     max-width: 31%;
     height: 200px;
     float: left;
     margin: 5px;
-    border: 2px solid #961c1c;
     text-align: center;
     align-items: center;
+    margin-bottom: 20px;
+}
+
+.mensagem, address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    max-width: 30%;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.contato {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+.clientes h3, .linkedin h3{
+    clear: both;
+}
+
+.direitos{
+    padding: 3px;
+    clear: both;
+    height: auto;
+    font-size: 15px;
 }
 
 ol{
@@ -47,14 +97,73 @@ ol{
     height: 80px;
 }
 
+#titulo_saude, #titulo_educacao, #titulo_prefeitura, #titulo_produto_tecnologia, #titulo_suporte_experiencia, #titulo_comercial{
+    font-size: 20px;
+    text-decoration: underline;
+}
+
 #titulo_saude{
-    color: rgb(35, 150, 1)
+    color: #45a049;
 }
 
-#titulo_educacao{
-    color: rgb(39, 156, 224)
+#titulo_educacao {
+    color: #0077b5;
 }
 
-#titulo_prefeitura{
-    color: orangered;
+#titulo_prefeitura {
+    color: #fc2626;
+}
+
+#titulo_suporte_experiencia{
+    color: #fc2626;
+}
+
+#titulo_comercial{
+    color: #45a049;
+}
+
+#titulo_produto_tecnologia{
+    color: #0077b5;
+}
+
+.linkedin {
+    background-color: #fc2626d5;
+    border: none;
+    color: white;
+    clear: both;
+    min-height: 100px;
+    border-radius: 10px;
+    max-width: 60%;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.linkedin a {
+    background-color: #0077b5;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.linkedin a:hover{
+    background-color: #45a049;
+}
+
+#encaminharMensagem{
+    background-color: #fc2626;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#encaminharMensagem:hover {
+    background-color: #45a049;
 }
