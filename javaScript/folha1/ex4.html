@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somar Campo</title>
+
+
+    <script>
+        
+        function somarValores(campoTexto){
+
+            let soma = 0;
+
+            for (let i = 0;i<campoTexto.length;i++){
+                soma+=parseInt(campoTexto[i]);             
+            }
+            alert(soma);
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <textarea onkeyup="somarValores(this.value)"></textarea>
+    
+</body>
+</html>

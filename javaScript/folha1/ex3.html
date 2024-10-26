@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array de Valores</title>
+
+    <script>
+
+        let aJazzistas = [
+            "John Coltrane",
+            "Miles Davis",
+            "Dave Brubeck",
+            "Charles Mingus"
+        ]
+
+        function percorrerArray(vetor){
+    
+            for (let i = 0;i<vetor.length;i++){
+                const divi = document.createElement("div");
+                divi.innerText = vetor[i];
+                document.body.appendChild(divi);
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <button onclick = "percorrerArray(aJazzistas)">Veja o vetor Criado!</button>
+
+    <div>
+        
+    </div>
+    
+</body>
+</html>

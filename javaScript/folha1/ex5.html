@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar botões</title>
+
+    <script>
+
+        function criarBotao(){
+
+
+            const botao = document.createElement("button");
+            botao.textContent="Botão!";
+            document.querySelector(".botoesCriados").appendChild(botao);
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <button onclick = "criarBotao()">Criar botão!</button>
+
+    <section class = "botoesCriados">
+
+    </section>
+    
+</body>
+</html>

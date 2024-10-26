@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botões</title>
+
+    <script>
+
+        function alterarDiv(divAlterada){
+
+            if (document.getElementById(divAlterada.id).style.display == 'none'){
+                document.getElementById(divAlterada.id).style.display = 'block'
+
+            } else{
+                document.getElementById(divAlterada.id).style.display = 'none'
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <button onclick = "alterarDiv(div1)" style = "background-color: green">Altere a Div 1</button>
+    <br>
+    <button onclick = "alterarDiv(div2)" style = "background-color: red">Altere a Div 2</button>
+    <br>
+    <button onclick = "alterarDiv(div3)" style = "background-color: lightblue">Altere a Div 3</button>
+    <br>
+
+    <div id = "div1" style = "display: block;">DIV 1</div>
+    <div id = "div2" style = "display: block;">DIV 2</div>
+    <div id = "div3" style = "display: block;">DIV 3</div>
+    
+</body>
+</html>

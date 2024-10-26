@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma Parâmetros</title>
+
+    <script>
+
+        function soma(valor1,valor2){
+
+            let resultado;
+
+            valor1 = parseInt(valor1.value);
+            valor2 = parseInt(valor2.value);
+
+
+            if (isNaN(valor1) || (isNaN(valor2))){
+                alert('Não é Numérico!')
+            } else{
+                resultado =  valor1 + valor2;
+                document.write("O resultado é: " + resultado);
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <div class = "calculos">
+
+    <label for = "num1">Informe o valor 1:</label>
+    <input type = "number" id = "num1" name = "num1">
+
+    <label for = "num2">Informe o valor 2:</label>
+    <input type = "number" id = "num2" name = "num2">
+
+    <button onclick = "soma(num1,num2)">Clique aqui!</button>
+
+</div>
+
+    
+</body>
+</html>

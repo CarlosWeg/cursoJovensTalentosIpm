@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Quantidade</title>
+
+    <script>
+
+        let divsGeradas = [];
+
+        function gerar(){
+
+            divsGeradas.forEach(div =>document.body.removeChild(div));
+            divsGeradas = [];
+            qntdAtual= parseInt(document.getElementById("quantidade").value);
+
+            for (let i = 1;i<=qntdAtual;i++){
+                const div = document.createElement("div");
+                div.textContent = i;
+                document.body.appendChild(div);
+                divsGeradas.push(div);
+            }
+
+        }
+
+    </script>
+
+    <style>
+        div{
+            width: 30px;
+            height: 30px;
+            float: left;
+        }
+
+        button{
+            position: relative;
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+
+    <label for = "quantidade">Informe a quantidade:</label>
+    <input type = "number" name = "quantidade" id = "quantidade">
+    <br><br>
+    <button onclick="gerar()">Gerar!</button>
+    <br><br>
+    
+</body>
+</html>
