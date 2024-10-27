@@ -1,40 +1,48 @@
+<!--
+4 - Criar uma nova página contendo um campo com label "Quantidade" e um botão
+"Gerar". Ao usuário informar um número e clicar no botão, deverão ser geradas
+divs de acordo com o número informado no campo. Sendo que as divs devem
+possuir como texto o índice delas. Deve existir uma classe css genérica para divs, de
+modo que todas possuam as dimensões 30x30, e fiquem uma do lado da outra. Ao
+clicar uma segunda vez no botão, todas as divs devem ser removidas e recriadas.
+Exemplo: Informar número 4 no campo e clicar no botão. Devem ser geradas 4 divs,
+que possuirão os textos internos respectivamente 1,2,3 e 4.
+
+-->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Quantidade</title>
+    <title>Gerar Divs</title>
 
     <script>
 
         let divsGeradas = [];
 
-        function gerar(){
+        function gerar(qntd){
 
-            divsGeradas.forEach(div =>document.body.removeChild(div));
+            divsGeradas.forEach(div => document.body.removeChild(div));
+            
             divsGeradas = [];
-            qntdAtual= parseInt(document.getElementById("quantidade").value);
-
-            for (let i = 1;i<=qntdAtual;i++){
+            
+            qntd= parseInt(qntd);
+            for (let i = 1;i<=qntd;i++){
                 const div = document.createElement("div");
-                div.textContent = i;
+                div.innerText=i;
+                div.style.height= "30px";
+                div.style.width= "30px";
+                div.style.float= "left";
                 document.body.appendChild(div);
                 divsGeradas.push(div);
             }
-
         }
 
     </script>
 
     <style>
-        div{
-            width: 30px;
-            height: 30px;
-            float: left;
-        }
-
-        button{
-            position: relative;
+        label, input, button{
             display: block;
         }
     </style>
@@ -42,11 +50,10 @@
 </head>
 <body>
 
-    <label for = "quantidade">Informe a quantidade:</label>
+    <label for = "quantidade">Insira a quantidade de divs que serão geradas:</label>
     <input type = "number" name = "quantidade" id = "quantidade">
-    <br><br>
-    <button onclick="gerar()">Gerar!</button>
-    <br><br>
+
+    <button onclick = gerar(quantidade.value)>Gerar!</button>
     
 </body>
 </html>

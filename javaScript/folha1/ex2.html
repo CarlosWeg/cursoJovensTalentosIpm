@@ -1,36 +1,69 @@
+<!--
+
+2 - Criar 3 divs coloridas e 3 botões, cada um referenciando a uma div. Cada vez que for
+clicado o botão ele deve exibir ou ocultar a div relacionada a ele. Exemplo: Ao
+carregar a tela teremos a div 1 com o botão 1. Ao clicar no botão 1 a div 1 será
+escondida e, ao clicar novamente ela será exibida.
+
+-->
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botões</title>
+    <title>Divs e Botões</title>
 
     <script>
 
-        function alterarDiv(divAlterada){
+        function alterarDiv(idDiv){
 
-            if (document.getElementById(divAlterada.id).style.display == 'none'){
-                document.getElementById(divAlterada.id).style.display = 'block'
-
+            if (document.getElementById(idDiv).style.display == "none"){
+                document.getElementById(idDiv).style.display = "block";
             } else{
-                document.getElementById(divAlterada.id).style.display = 'none'
+                document.getElementById(idDiv).style.display = "none";
             }
+
         }
+
     </script>
+
+    <style>
+        div,button{
+            padding: 30px;
+        }
+
+        div{
+            display: block;
+        }
+
+        #div1{
+            background-color: green;
+        }
+
+        #div2{
+            background-color: lightblue;
+        }
+
+        #div3{
+            background-color: lightsalmon;
+        }
+    </style>
 
 </head>
 <body>
 
-    <button onclick = "alterarDiv(div1)" style = "background-color: green">Altere a Div 1</button>
-    <br>
-    <button onclick = "alterarDiv(div2)" style = "background-color: red">Altere a Div 2</button>
-    <br>
-    <button onclick = "alterarDiv(div3)" style = "background-color: lightblue">Altere a Div 3</button>
-    <br>
+    <button id="botDiv1" onclick = "alterarDiv('div1')">Alterar a Div 1</button>
+    <button id="botDiv2" onclick = "alterarDiv('div2')">Alterar a Div 2</button>
+    <button id="botDiv3" onclick = "alterarDiv('div3')">Alterar a Div 3</button>
 
-    <div id = "div1" style = "display: block;">DIV 1</div>
-    <div id = "div2" style = "display: block;">DIV 2</div>
-    <div id = "div3" style = "display: block;">DIV 3</div>
-    
+    <div id = "div1">Div 1 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente impedit modi earum. Ea tenetur quae sequi, enim cumque vel ratione excepturi hic amet facilis harum itaque accusamus voluptas iusto dolores!</div>
+
+    <div id = "div2">Div 2 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eos eveniet molestiae repellat. Eum officiis corrupti deserunt quaerat culpa? Rerum quo expedita cum aspernatur quod similique delectus, repellendus natus et!</div>
+
+    <div id = "div3">Div 3 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae obcaecati eveniet placeat, neque omnis facere assumenda soluta provident reprehenderit iste, possimus ullam officia molestias doloribus ducimus aliquid voluptatem! Vel, non.</div>
+
+
 </body>
 </html>

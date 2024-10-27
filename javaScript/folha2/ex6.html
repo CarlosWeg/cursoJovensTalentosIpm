@@ -1,36 +1,51 @@
+<!--
+6 - Criar uma página com apenas um botão. Ao clicar no botão deve criar gerar uma
+div com tamanho de 20x20, sendo que as cores para borda e para fundo serão
+aleatórias de acordo com o array descrito a seguir: [aqua, black, brown, gold, grey,
+red, yellow, green, blue, magenta, tomato, orange, olive, navy]. Considerando que
+as cores de borda e de background devem ser selecionadas aleatoriamente, em
+momentos separados. Dica: Usar random para pegar a posição do array de cores.
+-->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borda aleatória</title>
-
+    <title>Cores Aleatórias</title>
     <script>
 
-        cores = ["aqua", "black", "brown", "gold", "grey", "red", "yellow", "green", "blue", "magenta", "tomato", "orange", "olive", "navy"];
-
-        function gerarDiv() {
-            const numAleatorioBorda = Math.floor(Math.random() * 14);
-            const numAleatorioFundo = Math.floor(Math.random() * 14);
-
-            const div = document.createElement("div");
-            div.style.backgroundColor = cores[numAleatorioFundo];
-            div.style.border = "solid 2px " + cores[numAleatorioBorda];
-            document.body.appendChild(div);
+        function gerarDivs() {
+            let cores = ['aqua', 'black', 'brown', 'gold', 'grey', 'red', 'yellow', 'green', 'blue', 'magenta', 'tomato', 'orange', 'olive', 'navy'];
+            const numAleatorioBorda = Math.floor(Math.random() * cores.length);
+            const numAleatorioFundo = Math.floor(Math.random() * cores.length);
+            const divGerada = document.createElement("div");
+            divGerada.style.backgroundColor = cores[numAleatorioFundo];
+            divGerada.style.border = "solid 3px";
+            divGerada.style.borderColor = cores[numAleatorioBorda];
+            divGerada.style.height = "20px";
+            divGerada.style.width = "20px";
+            divGerada.style.margin = "10px";
+            document.querySelector('.container').appendChild(divGerada);
         }
 
     </script>
 
     <style>
-        div{
-            height: 40px;
-            width: 40px;
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        div, button {
+            padding: 10px;
         }
     </style>
+
 </head>
 <body>
 
-    <button onclick = "gerarDiv()">Clique aqui para gerar a Div!</button>
+    <button onclick="gerarDivs()">Clique aqui para gerar a Div!</button>
+    <div class="container"></div>
     
 </body>
 </html>

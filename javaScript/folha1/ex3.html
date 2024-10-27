@@ -1,9 +1,16 @@
+<!--
+3 - Criar uma função que receba um array de valores como parâmetro, e que quando
+chamada percorra esse array exibindo ao usuário os valores um de cada vez.
+Apresente estes valores dentro de uma div.
+-->
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array de Valores</title>
+    <title>Array - Percorrer</title>
 
     <script>
 
@@ -14,24 +21,28 @@
             "Charles Mingus"
         ]
 
-        function percorrerArray(vetor){
-    
+        function exibirArray(vetor){
+
             for (let i = 0;i<vetor.length;i++){
-                const divi = document.createElement("div");
-                divi.innerText = vetor[i];
-                document.body.appendChild(divi);
+                const paragrafo = document.createElement("p");
+                paragrafo.innerText=vetor[i];
+                document.body.querySelector('.nomesDoJazz').appendChild(paragrafo);
             }
+
         }
 
     </script>
 </head>
 <body>
 
-    <button onclick = "percorrerArray(aJazzistas)">Veja o vetor Criado!</button>
+    <button onclick = "exibirArray(aJazzistas)">Mostrar o Vetor!</button>
 
-    <div>
-        
+    <div class = "nomesDoJazz">
+
+
     </div>
+
+
     
 </body>
 </html>

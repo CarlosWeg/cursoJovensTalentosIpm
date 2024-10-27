@@ -1,40 +1,50 @@
+<!--
+
+1 - Criar uma função, que possua 2 valores como parâmetros. Quando chamada, caso
+não tenha sido passado um dos parâmetros ou não seja um valor numérico deve
+exibir um alert() em tela, avisando o usuário sobre a situação. Caso os parâmetros
+sejam válidos, deve exibir um alerta com a soma dos 2 valores.
+
+-->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soma Parâmetros</title>
+    <title>Valores parâmetros</title>
 
     <script>
 
         function soma(valor1,valor2){
 
-            let resultado;
+            let resultado = 0;
 
-            valor1 = parseInt(valor1.value);
-            valor2 = parseInt(valor2.value);
-
-
-            if (isNaN(valor1) || (isNaN(valor2))){
-                alert('Não é Numérico!')
+            valor1 = parseInt(valor1);
+            valor2 = parseInt(valor2);
+            
+            if (!isNaN(valor1) && !isNaN(valor2)){
+                resultado= valor1 + valor2;
+                alert("O resultado é: " + resultado);
             } else{
-                resultado =  valor1 + valor2;
-                document.write("O resultado é: " + resultado);
+                alert("Erro: Valores incorretos.")
             }
         }
 
+
     </script>
+
+
 </head>
 <body>
 
-    <label for = "num1">Informe o valor 1:</label>
+    <label for = "num1">Informe o número 1: </label>
     <input type = "number" id = "num1" name = "num1">
 
-    <label for = "num2">Informe o valor 2:</label>
+    <label for = "num2">Informe o número 2: </label>
     <input type = "number" id = "num2" name = "num2">
 
-    <button onclick = "soma(num1,num2)">Clique aqui!</button>
-
+    <button onclick = "soma(num1.value, num2.value)">Aperte aqui para calcular!</button>
     
 </body>
 </html>
