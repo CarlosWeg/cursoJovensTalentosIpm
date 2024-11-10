@@ -21,9 +21,10 @@
 
     <?php
         if ($_SERVER['REQUEST_METHOD'] == "POST"){
-            $vetor = explode(" ",$_POST['palavras']);
+            require_once 'funcoes_ex6.php';
+            $palavras = $_POST['palavras'];
 
-            echo 'Quantidade de palavras: ' . count($vetor);
+            echo 'Quantidade de palavras: ' . contPalavras($palavras);
         }
 
     ?>

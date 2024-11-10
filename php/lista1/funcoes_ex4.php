@@ -1,11 +1,13 @@
 <?php
-    function ocoCaractere($texto,$caractere){
-        $quantidade = 0;
 
-        for ($i = 0;$i<=strlen($texto);$i++){
-                    if (substr($texto,$i, 1) == $caractere){
-                        $quantidade++;
-                    }
-                }
-        echo $quantidade;
+    function contCaractere($text,$carac){
+        $tamanho = strlen($text);
+        $cont = 0;
+
+        for ($i= 0;$i<$tamanho;$i++){
+            if (substr($text,$i,1) == $carac) {
+                $cont++;
+            }
+        }
+        return $cont;
     }

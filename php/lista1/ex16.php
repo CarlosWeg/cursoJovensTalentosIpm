@@ -26,7 +26,7 @@
         <input type = "numer" name = "aluguel" step = "0.01" required>
         <br>
 	
-	<input type = "submit" value = "Enviar">
+	    <input type = "submit" value = "Enviar">
 
     </form>
 

@@ -18,18 +18,17 @@
 
         <input type = "submit" value = "Enviar">
 
-
-
     </form>
 
     <?php
 
         if ($_SERVER['REQUEST_METHOD'] == "POST"){
+            require_once 'funcoes_ex14.php';
             
             $senha = $_POST['senha'];
             $nome = $_POST['nome'];
 
-            if ($senha == $nome){
+            if (verificarSenha($senha, $nome)){
                 echo 'ERRO: Senha igual ao nome de usuário.';
             } else{
                 echo 'Cadastro realizado com sucesso';

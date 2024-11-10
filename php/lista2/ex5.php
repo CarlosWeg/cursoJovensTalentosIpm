@@ -8,37 +8,22 @@
 
 <body>
 
-    <form action = "" method = "POST">
 
-	
+    <form method="post">
+
+            <input type="submit" value="Gerar Senha">
 
     </form>
 
+
     <?php
-        if ($_SERVER['REQUEST_METHOD'] == "POST"){
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             require_once 'funcoes_ex5.php';
-
-            $tamanho= rand(10,14);
- 
-            $caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_!@#+-';
-            
-            $senha = '';
-            for ($i = 0; $i < $tamanho; $i++) {
-                $senha .= $caracteres[rand(0, strlen($caracteres) - 1)];
-            }
-
-            str_shuffle($senha);
-            
-            echo 'Senha gerada: ' . $senha;
-            
+            $senha = gerarSenha();
+            echo "Senha gerada: $senha";
         }
-
-            
-    ?>
-
-            
-
-
+          
     ?>
 
 
