@@ -6,7 +6,7 @@
         $sPort = '5432';
         $sDbName = 'mercado';
         $sUser = 'postgres';
-        $sPassword = 'postgresql';
+        $sPassword = 'postgres';
 
         $sConexao = "host = $sHost
                     port = $sPort

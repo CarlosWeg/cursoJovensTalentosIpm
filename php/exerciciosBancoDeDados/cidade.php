@@ -1,7 +1,19 @@
 <?php
+
 require_once 'funcoes.php';
 require_once 'db.php';
-$cidades = obterCidades();
+$cidades = listarGeral('TBCIDADE','CIDNOME');
+
+if (isset($_POST['cadastrar_cidade'])){
+    $nomeCidade = pg_escape_string($_POST['nome_cidade']);
+    $value = "'$nomeCidade'";
+    inserirGeral('cidade.php','TBCIDADE', 'CIDNOME', $value);
+}
+
+if (isset($_GET['deletar_cidade'])){
+    $codigo = $_GET['deletar_cidade'];
+    deletarGeral('cidade.php', 'TBCIDADE', 'CIDCODIGO', $codigo);
+}
 
 ?>
 
@@ -18,39 +30,56 @@ $cidades = obterCidades();
 
 <body>
 
-    <nav>
-        <a href= "categoria.php">Categoria</a>
-        <a href= "departamento.php">Departamento</a>
-        <a href= "cidade.php">Cidade</a>
-        <a href= "cliente.php">Cliente</a>
-        <a href= "fornecedor.php">Fornecedor</a>
-        <a href= "funcionario.php">Funcionário</a>
-        <a href= "produto.php">Produto</a>
-    </nav>
+    <div class = "container-principal">
 
-    <fieldset>
-        <legend>Listagem de cidades:</legend>
-        <table>
-            <th>Código</th>
-            <th>Descrição</th>
-            <th>Ações</th>
+        <nav>
+            <a href= "categoria.php">Categoria</a>
+            <a href= "departamento.php">Departamento</a>
+            <a href= "cidade.php">Cidade</a>
+            <a href= "cliente.php">Cliente</a>
+            <a href= "fornecedor.php">Fornecedor</a>
+            <a href= "funcionario.php">Funcionário</a>
+            <a href= "produto.php">Produto</a>
+        </nav>
 
-            <?php listarCidades($cidades)?>  
+        <fieldset>
+            <legend>Listagem de cidades:</legend>
+            <table>
 
-        </table>
 
-    </fieldset>
+                <tr>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
 
-    <fieldset>
-        <legend>Cadastro de Cidade:</legend>
-        <form action="funcoes.php" method="POST">
+                <?php
+                    foreach ($cidades as $cidade){
+                        echo '<tr>';
+                        echo '<td>' . $cidade['cidcodigo'] . '</td>';
+                        echo '<td>' . $cidade['cidnome'] . '</td>';
+                        echo '<td><a href="?deletar_cidade=' . $cidade['cidcodigo'] . '">Deletar</a></td>';
+                        echo '</tr>';
+                    }
+                ?>
+            
 
-            <label for = "nome_cidade">Nome:</label>
-            <input type = "text" name = "nome_cidade" required>
+            </table>
 
-            <input type="submit" name="cadastrar_cidade" value="Cadastrar">
-        </form>
-    </fieldset>
+        </fieldset>
+
+        <fieldset>
+            <legend>Cadastro de Cidade:</legend>
+            <form method="POST">
+
+                <label for = "nome_cidade">Nome:</label>
+                <input type = "text" name = "nome_cidade" required>
+
+                <input type="submit" name="cadastrar_cidade" value="Cadastrar">
+            </form>
+        </fieldset>
+
+    </div>
 
 </body>
 

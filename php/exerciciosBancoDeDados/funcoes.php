@@ -1,98 +1,39 @@
 <?php
 
-    require_once 'db.php';
+require_once 'db.php';
 
-//PÁGINA CIDADES
-
-    function obterCidades(){
+    function listarGeral($nomeTabela,$colunaOrder, $colunas = '*', $joins = ''){
         $conexao = conectarBD();
-        $query = "SELECT CIDCODIGO, CIDNOME
-                    FROM MERCADO.TBCIDADE";
+        $query = "SELECT $colunas
+                    FROM MERCADO.$nomeTabela
+                  $joins
+                   ORDER BY $colunaOrder ASC";
+        $oResult  = pg_query($conexao,$query);
+        $aData = [];
 
-        $resultado = pg_query($conexao,$query);
-        return pg_fetch_all($resultado);
+        while ($aResultado = pg_fetch_assoc($oResult)){
+            $aData[]=$aResultado;
+        }      
+
+        return $aData;
     }
 
-    function listarCidades($cidades){
-        foreach ($cidades as $cidade){
-            echo '<tr>
-                    <td>' . $cidade['cidcodigo'] .'</td><td> ' . $cidade['cidnome'] . '</td><td><a href="funcoes.php?remover_cidade=' . $cidade['cidcodigo'] . '">Remover</a></td>
-                  <tr>';
-        }
-    }
-
-    if (isset($_POST['cadastrar_cidade'])){
+    function deletarGeral($pagina, $nomeTabela,$colunaWhere, $codigoWhere){
         $conexao = conectarBD();
-        $dado = pg_escape_string($_POST['nome_cidade']);
-        $query = "INSERT INTO MERCADO.TBCIDADE (CIDNOME)
-                  VALUES ('$dado')";
+        $query = "DELETE
+                    FROM MERCADO.$nomeTabela
+                   WHERE $colunaWhere = $codigoWhere";
         pg_query($conexao,$query);
-
-        header('Location: cidade.php');
+        header("Location: $pagina");
         exit();
     }
 
-    if (isset($_GET['remover_cidade'])){
+    function inserirGeral($pagina,$nomeTabela, $camposTabela, $valores){
         $conexao = conectarBD();
-        $codigo = $_GET['remover_cidade'];
-        $query = "DELETE FROM MERCADO.TBCIDADE
-                   WHERE CIDCODIGO = $codigo";
-
-        pg_query($conexao,$query);
-
-        header('Location: cidade.php');
-        exit();
-    }
-
-//PÁGINA CLIENTES
-
-    function obterClientes(){
-        $conexao = conectarBD();
-        $query = "SELECT CLICODIGO, CLINOME, CLICPF, CIDCODIGO
-                   FROM MERCADO.TBCLIENTE;";
-
-        $resultado = pg_query($conexao,$query);
-        return pg_fetch_all($resultado);
-    }
-
-    function listarClientes($clientes){
-        foreach ($clientes as $cliente){
-            echo '<tr><td>' . $cliente['clinome'] . '</td><td> ' . $cliente['clicodigo'] . '</td><td>' . $cliente['clicpf'] . '</td><td>' . $cliente['cidcodigo'] . '</td><td><a href="funcoes.php?remover_cliente=' . $cliente['clicodigo'] . '">Remover</a></td>';
-        }
-    }
-
-    function listarCidadesSelect($cidades){
-        foreach ($cidades as $cidade){
-            echo '<option value = "' . $cidade['cidcodigo'] . '">' . $cidade['cidnome'] . '</option>';
-        }
-    }
-    if (isset($_POST['cadastrar_cliente'])){
-            $conexao = conectarBD();
-            $nome = $_POST['nome_cliente'];
-            $cpf = $_POST['cpf'];
-            $cidadeCodigo = $_POST['selecionar_cidade'];
-            var_dump($nome);
-
-            $query = "INSERT INTO MERCADO.TBCLIENTE
-                                  (clinome, clicpf, cidcodigo)
-                      VALUES ('$nome','$cpf','$cidadeCodigo')";
-
-            pg_query($conexao,$query);
-
-            header('Location: cliente.php');
-            exit();
-    }
-
-
-
-    if (isset($_GET['remover_cliente'])){
-        $conexao = conectarBD();
-        $codigo = $_GET['remover_cliente'];
-        $query = "DELETE FROM MERCADO.TBCLIENTE
-                   WHERE CIDCODIGO = $codigo";
-
-        pg_query($conexao,$query);
-
-        header('Location: cliente.php');
+        $query = "INSERT INTO MERCADO.$nomeTabela
+                         ($camposTabela)
+                  VALUES ($valores)";
+                pg_query($conexao,$query);
+        header("Location: $pagina");
         exit();
     }
