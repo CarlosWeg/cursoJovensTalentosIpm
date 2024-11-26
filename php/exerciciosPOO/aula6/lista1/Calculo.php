@@ -24,13 +24,14 @@
 // 3 - Faça uma função que receba por parâmetro um valor inteiro e retorne ocubo do valor.
 
         public function calcCubo($valor){
-            return pow($valor,3);
+            return pow($valor,3); // pow — Expressão exponencial - pow($num, $exponent)
+
         }
 
 // 4 - Faça uma função que receba três números inteiros diferentes, deixe os mesmo em ordem crescente e retorne um array contendo os seus valores ordenados.
         public function ordenarNumeros($num1,$num2,$num3){
             $aData = [$num1,$num2,$num3];
-            sort($aData);
+            sort($aData); // sort — Ordena um array em ordem ascendente - sort($array)
             return $aData;
         }
 
@@ -38,7 +39,8 @@
 
         public function aprovado($nota1,$nota2){
             $media = ($nota1 + $nota2) /2;
-            if ($media>5){
+
+            if ($media>=5){
                 return true;
             } else{
                 return false;
@@ -50,11 +52,12 @@
         public function somaComparativa($a,$b,$c){
             if (($a + $b)<$c){
                 return 'A + B é MENOR que C';
-            } else{
+            } else if (($a + $b)>$c){
                 return 'A + B é MAIOR que C';
+            } else{
+                return 'A + B é IGUAL a C';
             }
         }
-
 
 
 // 7 - Faça uma função que receba dois números e retorne em um array a soma, subtração, multiplicação e a divisão dos números. Realize uma validação caso o usuário informe uma divisão por zero.
@@ -68,18 +71,15 @@
                 $aData = [$soma,$subtracao,$multiplicacao,$divisao];
                 return $aData;
             } else{
-                return 'Divisão por zero!';
+                return 'Divisão por zero não permitida!';
             }
         }
-
-    
-
 
 // 8 - Faça uma função que receba o nome de um vendedor, o seu salário fixo e o total de vendas efetuadas por ele no mês (em dinheiro). Sabendo que este vendedor ganha 15% de comissão sobre suas vendas efetuadas, retorne um texto contendo seu nome, o salário fixo e salário no final do mês.
 
         public function infoVendedor($nome,$salarioFixo,$totalVendas){
-            define('comissao',15/100);
-            $salarioFinal = $salarioFixo + ($totalVendas*comissao);
+            define('COMISSAO',15/100); // constante COMISSAO de 15%
+            $salarioFinal = $salarioFixo + ($totalVendas*COMISSAO);
             return 'O vendedor ' . $nome . ' cujo salário fixo é de ' . number_format($salarioFixo,2,',','.') . ' recebeu no total ' . number_format($salarioFinal,2,',','.');
         }
 
@@ -95,12 +95,8 @@
 
 // Exercício 10 - Dados dois pontos quaisquer do plano, de coordenadas (x1, y1) para o primeiro ponto e (x2, y2) para o segundo ponto, faça uma função que receba os quatro parâmetros e retorna a distância entre eles. A fórmula que efetua tal cálculo é: d = raiz quadrada ((x2-x1)2 + (y2-y1)2).
         public function distanciaPlano($x1,$y1,$x2,$y2){
+            // d = raiz quadrada de [(x2 - x1)^2 + (y2 - y1)^2]
             $d = sqrt((pow(($x2-$x1),2) + pow(($y2-$y1),2)));
             return $d;
         }
-
-
-
-
-
     }
