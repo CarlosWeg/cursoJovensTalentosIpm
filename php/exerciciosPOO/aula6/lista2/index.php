@@ -23,54 +23,81 @@
 // Considere que um país tem no máximo 40 outros países com os quais ele faz
 // fronteira (efetuar validação).
 
-    //Constructs iniciais
 
-    $brasil = new Pais('BRA','Brasil',8515767.049);
-    $argentina = new Pais('ARG','Argentina',2796427);
+    // Criando instâncias de países
+    $brasil = new Pais('BRA', 'Brasil', 8515767.049);
+    $argentina = new Pais('ARG', 'Argentina', 2796427);
     $paraguai = new Pais('PRY', 'Paraguai', 406752);
-    $inglaterra = new Pais('GB','Inglaterra',130279);
+    $inglaterra = new Pais('GBR', 'Inglaterra', 130279);
 
-    //Testantando set e gets, dados iniciais
+    // Configurando as populações
+    $brasil->setPopulacao(203080756);
+    $argentina->setPopulacao(45195777);
+    $paraguai->setPopulacao(7132530);
+    $inglaterra->setPopulacao(55980000);
 
+    // Adicionando países à lista de fronteiras
     $brasil->setListaFronteira($argentina);
     $brasil->setListaFronteira($paraguai);
-    $brasil->setPopulacao(203080756);
 
     $argentina->setListaFronteira($brasil);
     $argentina->setListaFronteira($paraguai);
 
-    $paraguai->setListaFronteira($argentina);
     $paraguai->setListaFronteira($brasil);
+    $paraguai->setListaFronteira($argentina);
 
-    //Testando função densidade
-    echo 'Densidade do Brasil: ' . $brasil->getDensidade() . '<br>';
-    echo'<hr>';
-
-
-    //Testando funcao paises vizinhos
-    echo'Países vizinhos do Brasil com Argentina: <br>';
-    $vizinhosBrasilArgentina = $brasil->verificarVizinhos($argentina);
-    print_r($vizinhosBrasilArgentina);
-    echo'<hr>';
-
-    //Testando função que verifica se tem fronteira
-    echo'<br>';
-    echo'Verificar se o objeto (parâmetro) tem fronteira com o país atual: <br>';
-    if ($brasil->verificarFronteira($inglaterra)){
-        echo 'Tem fronteira';
-    } else{
-        echo 'Não tem fronteira';
-    }
-    
+    // Testando densidade populacional
+    echo 'Densidade do Brasil: ' . $brasil->getDensidade() . " hab/km²<br>";
+    echo 'Densidade da Argentina: ' . $argentina->getDensidade() . " hab/km²<br>";
+    echo 'Densidade do Paraguai: ' . $paraguai->getDensidade() . " hab/km²<br>";
+    echo 'Densidade da Inglaterra: ' . $inglaterra->getDensidade() . " hab/km²<br>";
     echo '<hr>';
 
-    //Testando função que verifica se é igual
-    echo'<br>';
-    echo'Verificar se o objeto (parâmetro) representa o país atual: <br>';
-    if ($brasil->igual($brasil)){
-        echo 'É igual';
-    } else{
-        echo 'Não é igual';
+    // Testando igualdade semântica
+    //<condição> ? <valor_se_verdadeiro> : <valor_se_falso>;
+    echo 'O Brasil é igual ao Paraguai? ';
+    echo $brasil->igual($paraguai) ? 'Sim' : 'Não';
+    echo '<br>';
+
+    echo 'O Brasil é igual ao Brasil? ';
+    echo $brasil->igual($brasil) ? 'Sim' : 'Não';
+    echo '<br><hr>';
+
+    // Testando fronteiras
+    echo 'A Inglaterra faz fronteira com o Brasil? ';
+    echo $brasil->verificarFronteira($inglaterra) ? 'Sim' : 'Não';
+    echo '<br>';
+
+    echo 'A Argentina faz fronteira com o Brasil? ';
+    echo $brasil->verificarFronteira($argentina) ? 'Sim' : 'Não';
+    echo '<br><hr>';
+
+    // Testando vizinhos em comum
+    echo 'Vizinhos em comum entre Brasil e Argentina: <br>';
+    $vizinhosComuns = $brasil->verificarVizinhos($argentina);
+    if (!empty($vizinhosComuns)) {
+        print_r($vizinhosComuns);
+    } else {
+        echo 'Nenhum vizinho em comum.';
     }
+    echo '<br>';
 
+    echo 'Vizinhos em comum entre Brasil e Inglaterra: <br>';
+    $vizinhosComuns = $brasil->verificarVizinhos($inglaterra);
+    if (!empty($vizinhosComuns)) {
+        print_r($vizinhosComuns);
+    } else {
+        echo 'Nenhum vizinho em comum.';
+    }
+    echo '<br><hr>';
 
+    // Testando limite de fronteiras
+    echo 'Testando limite de fronteiras:<br>';
+    try {
+        for ($i = 0; $i < 41; $i++) {
+            $novoPais = new Pais('PA' . $i, 'Pais' . $i, 100000);
+            $brasil->setListaFronteira($novoPais);
+        }
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }

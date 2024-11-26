@@ -43,7 +43,7 @@
             if (count($this->listaFronteira)<40){
                 $this->listaFronteira[] = $pais;
             } else{
-                return'Erro: um país tem no máximo 40 outros países com os quais ele faz fronteira';
+                throw new Exception('Erro: um país tem no máximo 40 outros países com os quais ele faz fronteira');
             }
         }
 
@@ -69,15 +69,13 @@
             foreach ($this->listaFronteira as $paisLista){
                 if ($paisLista == $pais){
                     return true;
-                } else{
-                    return false;
                 }
             }
+            return false;
         }
 
         public function getDensidade(){
-            $densidade = $this->getPopulacao() / $this->getDimensao();
-            return $densidade;
+            return number_format($this->getPopulacao() / $this->getDimensao(), 2);
         }
 
         public function verificarVizinhos(Pais $paisParam){
@@ -87,7 +85,7 @@
             foreach($paisParam->listaFronteira as $paisParamVizinho){
                 foreach($this->listaFronteira as $paisVizinho){
                     if ($paisParamVizinho == $paisVizinho){
-                        $aVizinhos[] = $paisParamVizinho->nome;
+                        $aVizinhos[] = $paisParamVizinho->getNome();
                     }
                 }
             }
