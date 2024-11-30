@@ -3,54 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 9</title>
+    <title>Escolha seus esportes</title>
 </head>
-
 <body>
+    <h1>Escolha suas modalidades favoritas</h1>
+    <form action="" method="POST">
+        <label for="natacao">Natação</label>
+        <input type="checkbox" name="esportes[]" id="natacao" value="Natação">
 
-    <form action = "" method = "POST">
+        <label for="futebol">Futebol</label>
+        <input type="checkbox" name="esportes[]" id="futebol" value="Futebol">
 
+        <label for="volei">Vôlei</label>
+        <input type="checkbox" name="esportes[]" id="volei" value="Vôlei">
 
-        <h3>Selecione as modalidades:</h3>
+        <label for="basquete">Basquete</label>
+        <input type="checkbox" name="esportes[]" id="basquete" value="Basquete">
 
-        <label for = "natacao">Natação</label>
-        <input type ="checkbox" name = "natacao">
-        <br>
+        <label for="tenis">Tênis</label>
+        <input type="checkbox" name="esportes[]" id="tenis" value="Tênis">
 
-        <label for = "futebol">Futebol</label>
-        <input type ="checkbox" name = "futebol">
-        <br>
-
-        <label for = "volei">Vôlei</label>
-        <input type ="checkbox" name = "volei">
-        <br>
-
-        <input type ="submit" value = "Enviar">
-
-
+        <br><br>
+        <input type="submit" value="Enviar">
     </form>
 
 
     <?php
 
-        if ($_SERVER['REQUEST_METHOD'] == "POST"){
-
-            if (isset($_POST['natacao'])){
-                echo 'Modalidade natação selecionada.<br>';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['esportes']) && is_array($_POST['esportes'])) {
+                echo '<ul>';
+                foreach ($_POST['esportes'] as $esporte) {
+                    echo '<li>' . htmlspecialchars($esporte) . '</li>';
+                }
+                echo '</ul>';
+            } else {
+                echo '<p>Nenhum esporte foi selecionado.</p>';
             }
-
-            if (isset($_POST['futebol'])){
-                echo 'Modalidade futebol selecionada.<br>';
-            }
-
-            if (isset($_POST['volei'])){
-                echo 'Modalidade volei selecionada.<br>';
-            }
-            
-        }
+        } else {
+            echo '<p>Método de requisição inválido.</p>';
+}
 
     ?>
-
 </body>
-
 </html>
